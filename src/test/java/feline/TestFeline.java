@@ -6,7 +6,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class TestFeline {
-
     Feline feline = new Feline();
 
     @Test
@@ -16,7 +15,6 @@ public class TestFeline {
 
     @Test
     public void getKittensIsOne() {
-
         assertEquals(1, feline.getKittens());
     }
 

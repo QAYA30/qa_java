@@ -8,19 +8,19 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class LionSexTest {
-
     private final String sex;
     private final boolean hasMane;
-
+    @Mock
+    Feline feline;
     public LionSexTest(String sex, boolean hasMane) {
         this.sex = sex;
         this.hasMane = hasMane;
     }
+
     @Parameterized.Parameters(name = "Sex = {0}, hasMane = {1}")
     public static Object[][] setSex() {
         return new Object[][]{
@@ -28,9 +28,6 @@ public class LionSexTest {
                 {"Самка", false},
         };
     }
-
-    @Mock
-    Feline feline;
 
     @Before
     public void setup() {
@@ -40,6 +37,6 @@ public class LionSexTest {
     @Test
     public void setSexOfLion() throws Exception {
         Lion lion = new Lion(sex, feline);
-        assertEquals(hasMane,lion.doesHaveMane());
+        assertEquals(hasMane, lion.doesHaveMane());
     }
 }
